@@ -26,10 +26,14 @@
 - **職業傷病診治專責醫院名單**（勞動部）— `assets/data/hospitals.json`（19 家，含座標）
 - 非結構化：勞工職業災害保險及保護法、職業安全衛生法、常見問答指南、歷史判決書
 
-## 🚀 啟動方式
+## 🚀 啟動與瀏覽方式
 
+### 1. 線上直接瀏覽
+本專案已透過 GitHub Pages 自動部署，您可以直接點擊下方連結進入平台：
+👉 [職盾 JobShield 線上展示平台](https://gingerliao.github.io/Occupational_Safety/)
+
+### 2. 本地運行
 純靜態網站，無需建置步驟：
-
 ```bash
 # 任一靜態伺服器即可
 python3 -m http.server 8099
