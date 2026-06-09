@@ -1,0 +1,713 @@
+﻿[
+ {
+  "name": "台灣積體電路製造股份有限公司十二廠六期",
+  "address": "新竹縣寶山鄉科學工業園區園區二路166號",
+  "passDate": "20230518",
+  "expireDate": "20260517",
+  "status": "通過",
+  "city": "新竹縣",
+  "district": "寶山鄉"
+ },
+ {
+  "name": "穩懋半導體股份有限公司華亞廠",
+  "address": "桃園市龜山區科技七路69號",
+  "passDate": "20230801",
+  "expireDate": "20260731",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "龜山區"
+ },
+ {
+  "name": "精材科技股份有限公司中壢二廠",
+  "address": "桃園市中壢區復興里自強二路1號、自強一路8號",
+  "passDate": "20230728",
+  "expireDate": "20260727",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "中壢區"
+ },
+ {
+  "name": "新代科技股份有限公司",
+  "address": "新竹市東區新竹科學園區研發二路25號",
+  "passDate": "20230824",
+  "expireDate": "20260823",
+  "status": "通過",
+  "city": "新竹市",
+  "district": "東區"
+ },
+ {
+  "name": "力晶積成電子製造股份有限公司P3",
+  "address": "新竹市東區力行路16-1號",
+  "passDate": "20230728",
+  "expireDate": "20260727",
+  "status": "通過",
+  "city": "新竹市",
+  "district": "東區"
+ },
+ {
+  "name": "穩懋半導體股份有限公司華亞二廠",
+  "address": "桃園市龜山區華亞二路358號",
+  "passDate": "20230611",
+  "expireDate": "20260610",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "龜山區"
+ },
+ {
+  "name": "中日合成化學股份有限公司林園工廠",
+  "address": "高雄市林園區石化四路6號",
+  "passDate": "20230611",
+  "expireDate": "20260610",
+  "status": "通過",
+  "city": "高雄市",
+  "district": "林園區"
+ },
+ {
+  "name": "欣興電子股份有限公司精密載板事業部二廠",
+  "address": "桃園市大園區中山北路288號",
+  "passDate": "20230522",
+  "expireDate": "20260521",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "大園區"
+ },
+ {
+  "name": "華新科技股份有限公司高雄一廠",
+  "address": "高雄市前鎮區加工出口區東三街1號",
+  "passDate": "20230611",
+  "expireDate": "20260610",
+  "status": "通過",
+  "city": "高雄市",
+  "district": "前鎮區"
+ },
+ {
+  "name": "力晶積成電子製造股份有限公司P1、P2",
+  "address": "新竹市東區力行一路11號",
+  "passDate": "20230728",
+  "expireDate": "20260727",
+  "status": "通過",
+  "city": "新竹市",
+  "district": "東區"
+ },
+ {
+  "name": "中日合成化學股份有限公司大發工廠",
+  "address": "高雄市大寮區大發工業區裕民街1號",
+  "passDate": "20230611",
+  "expireDate": "20260610",
+  "status": "通過",
+  "city": "高雄市",
+  "district": "大寮區"
+ },
+ {
+  "name": "台達電子工業股份有限公司桃園二廠",
+  "address": "桃園市桃園區興隆路18號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "桃園區"
+ },
+ {
+  "name": "環球晶圓股份有限公司新竹二廠",
+  "address": "新竹縣寶山鄉新竹科學工業園區工業東四路21-1號",
+  "passDate": "20230728",
+  "expireDate": "20260727",
+  "status": "通過",
+  "city": "新竹縣",
+  "district": "寶山鄉"
+ },
+ {
+  "name": "旭硝子顯示玻璃股份有限公司斗六廠",
+  "address": "雲林縣斗六市科工八路26號",
+  "passDate": "20230728",
+  "expireDate": "20260727",
+  "status": "通過",
+  "city": "雲林縣",
+  "district": "斗六市"
+ },
+ {
+  "name": "明台化工股份有限公司",
+  "address": "苗栗縣苑裡鎮水坡里2鄰水坡15之1號",
+  "passDate": "20230522",
+  "expireDate": "20260521",
+  "status": "通過",
+  "city": "苗栗縣",
+  "district": "苑裡鎮"
+ },
+ {
+  "name": "穩懋半導體股份有限公司龜山廠",
+  "address": "桃園市龜山區科技七路69號",
+  "passDate": "20230801",
+  "expireDate": "20260731",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "龜山區"
+ },
+ {
+  "name": "欣興電子股份有限公司合江廠",
+  "address": "桃園市中壢區合江路10、10-1號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "中壢區"
+ },
+ {
+  "name": "台灣特品化學股份有限公司",
+  "address": "彰化縣線西鄉彰濱東七路8號",
+  "passDate": "20230626",
+  "expireDate": "20260625",
+  "status": "通過",
+  "city": "彰化縣",
+  "district": "線西鄉"
+ },
+ {
+  "name": "三福氣體股份有限公司柳營二廠",
+  "address": "臺南市柳營區柳營科技工業區工六路1號",
+  "passDate": "20230713",
+  "expireDate": "20260712",
+  "status": "通過",
+  "city": "臺南市",
+  "district": "柳營區"
+ },
+ {
+  "name": "達佛羅股份有限公司",
+  "address": "臺中市大雅區中山路33號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "臺中市",
+  "district": "大雅區"
+ },
+ {
+  "name": "台灣積體電路製造股份有限公司十五廠七期(擴建)",
+  "address": "臺中市大雅區科學園區科雅西路15、17、19號及科雅五路2、6、8號",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "臺中市",
+  "district": "大雅區"
+ },
+ {
+  "name": "南茂科技股份有限公司新竹廠",
+  "address": "新竹市東區力行路2號(北面新竹廠)",
+  "passDate": "20230522",
+  "expireDate": "20260521",
+  "status": "通過",
+  "city": "新竹市",
+  "district": "東區"
+ },
+ {
+  "name": "日商住友培科股份有限公司台灣分公司",
+  "address": "高雄市大寮區大發工業區華中路46號",
+  "passDate": "20230611",
+  "expireDate": "20260610",
+  "status": "通過",
+  "city": "高雄市",
+  "district": "大寮區"
+ },
+ {
+  "name": "台達電子工業股份有限公司臺南二廠",
+  "address": "臺南市善化區台南科學工業園區木柵港東路17號",
+  "passDate": "20230728",
+  "expireDate": "20260727",
+  "status": "通過",
+  "city": "臺南市",
+  "district": "善化區"
+ },
+ {
+  "name": "華友聯開發股份有限公司",
+  "address": "高雄市鳳山區澄清路152號4樓",
+  "passDate": "20230825",
+  "expireDate": "20260824",
+  "status": "通過",
+  "city": "高雄市",
+  "district": "鳳山區"
+ },
+ {
+  "name": "精華光學股份有限公司汐止六廠",
+  "address": "新北市汐止區大安街50號2至4樓",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "新北市",
+  "district": "汐止區"
+ },
+ {
+  "name": "精華光學股份有限公司汐止二廠",
+  "address": "新北市汐止區大同路三段275號及大安街48號2、3樓",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "新北市",
+  "district": "汐止區"
+ },
+ {
+  "name": "精華光學股份有限公司汐止四廠",
+  "address": "新北市汐止區大安街56巷2號4、6樓",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "新北市",
+  "district": "汐止區"
+ },
+ {
+  "name": "精華光學股份有限公司汐止五廠",
+  "address": "新北市汐止區保長路376號1、2、4樓",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "新北市",
+  "district": "汐止區"
+ },
+ {
+  "name": "台灣日立亞太股份有限公司臺灣分公司",
+  "address": "臺北市松山區南京東路三段287號11樓",
+  "passDate": "20230601",
+  "expireDate": "20260531",
+  "status": "通過",
+  "city": "臺北市",
+  "district": "松山區"
+ },
+ {
+  "name": "遠雄營造股份有限公司",
+  "address": "臺北市信義區基隆路一段200號10樓",
+  "passDate": "20230626",
+  "expireDate": "20260625",
+  "status": "通過",
+  "city": "臺北市",
+  "district": "信義區"
+ },
+ {
+  "name": "欣興電子股份有限公司新竹廠",
+  "address": "新竹縣新豐鄉中崙村293-1號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "新竹縣",
+  "district": "新豐鄉"
+ },
+ {
+  "name": "欣興電子股份有限公司新豐二廠",
+  "address": "新竹縣新豐鄉建興路二段491號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "新竹縣",
+  "district": "新豐鄉"
+ },
+ {
+  "name": "群創光電股份有限公司六廠",
+  "address": "苗栗縣竹南鎮新竹科學園區科北街18號",
+  "passDate": "20230522",
+  "expireDate": "20260521",
+  "status": "通過",
+  "city": "苗栗縣",
+  "district": "竹南鎮"
+ },
+ {
+  "name": "聯華電子股份有限公司8S廠",
+  "address": "新竹市東區新竹科學園區力行二路3號",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "新竹市",
+  "district": "東區"
+ },
+ {
+  "name": "穩懋半導體股份有限公司桃園廠",
+  "address": "桃園市龜山區科技七路69號",
+  "passDate": "20230801",
+  "expireDate": "20260731",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "龜山區"
+ },
+ {
+  "name": "達和環境服務股份有限公司(嘉義縣鹿草垃圾焚化廠)",
+  "address": "嘉義縣鹿草鄉豐稠村荷苞嶼120號",
+  "passDate": "20230522",
+  "expireDate": "20260521",
+  "status": "通過",
+  "city": "嘉義縣",
+  "district": "鹿草鄉"
+ },
+ {
+  "name": "美商科磊股份有限公司台灣分公司",
+  "address": "新竹縣竹北市台元街26號7樓之1",
+  "passDate": "20230713",
+  "expireDate": "20260712",
+  "status": "通過",
+  "city": "新竹縣",
+  "district": "竹北市"
+ },
+ {
+  "name": "中台資源科技股份有限公司二廠",
+  "address": "桃園市觀音區環北路412號",
+  "passDate": "20230728",
+  "expireDate": "20260727",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "觀音區"
+ },
+ {
+  "name": "三福氣體股份有限公司善化廠",
+  "address": "臺南市善化區建國路136號",
+  "passDate": "20230713",
+  "expireDate": "20260712",
+  "status": "通過",
+  "city": "臺南市",
+  "district": "善化區"
+ },
+ {
+  "name": "台灣中油股份有限公司探採事業部天然氣處理廠",
+  "address": "苗栗縣頭屋鄉明德村222號",
+  "passDate": "20230626",
+  "expireDate": "20260625",
+  "status": "通過",
+  "city": "苗栗縣",
+  "district": "頭屋鄉"
+ },
+ {
+  "name": "聯華電子股份有限公司12A廠",
+  "address": "新竹市東區新竹科學園區力行二路3號",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "新竹市",
+  "district": "東區"
+ },
+ {
+  "name": "台達電子工業股份有限公司桃園一廠",
+  "address": "桃園市桃園區興隆路18號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "桃園區"
+ },
+ {
+  "name": "欣興電子股份有限公司仁愛廠",
+  "address": "桃園市大園區仁愛路二段10號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "大園區"
+ },
+ {
+  "name": "台南紡織股份有限公司太子廠",
+  "address": "臺南市新營區太北里61號",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "臺南市",
+  "district": "新營區"
+ },
+ {
+  "name": "建順煉鋼股份有限公司",
+  "address": "苗栗縣通霄鎮內湖里113-1號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "苗栗縣",
+  "district": "通霄鎮"
+ },
+ {
+  "name": "正達國際光電股份有限公司三廠",
+  "address": "苗栗縣銅鑼鄉中興工業區中興路62號",
+  "passDate": "20230728",
+  "expireDate": "20260727",
+  "status": "通過",
+  "city": "苗栗縣",
+  "district": "銅鑼鄉"
+ },
+ {
+  "name": "高柏科技股份有限公司",
+  "address": "臺北市內湖區民權東路六段109號10樓",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "臺北市",
+  "district": "內湖區"
+ },
+ {
+  "name": "東元電機股份有限公司中壢廠",
+  "address": "桃園市中壢區安東路11號",
+  "passDate": "20230825",
+  "expireDate": "20260824",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "中壢區"
+ },
+ {
+  "name": "聯華電子股份有限公司12A-P5",
+  "address": "新竹市東區力行二路3號",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "新竹市",
+  "district": "東區"
+ },
+ {
+  "name": "欣興電子股份有限公司新豐三廠",
+  "address": "新竹縣新豐鄉建興路二段421巷35號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "新竹縣",
+  "district": "新豐鄉"
+ },
+ {
+  "name": "精華光學股份有限公司汐止三廠",
+  "address": "新北市汐止區大安街52號2至4樓",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "新北市",
+  "district": "汐止區"
+ },
+ {
+  "name": "欣興電子股份有限公司蘆竹三廠",
+  "address": "桃園市蘆竹區南崁路二段100號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "蘆竹區"
+ },
+ {
+  "name": "力晶積成電子製造股份有限公司8A廠",
+  "address": "新竹市東區新竹科學工業園區力行一路11號",
+  "passDate": "20230728",
+  "expireDate": "20260727",
+  "status": "通過",
+  "city": "新竹市",
+  "district": "東區"
+ },
+ {
+  "name": "台灣積體電路製造股份有限公司十五廠六期(擴建)",
+  "address": "臺中市大雅區科學園區科雅西路15、17、19號及科雅五路2、6、8號",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "臺中市",
+  "district": "大雅區"
+ },
+ {
+  "name": "宏華營造股份有限公司",
+  "address": "臺中市梧棲區台灣大道十段2號4樓",
+  "passDate": "20230626",
+  "expireDate": "20260625",
+  "status": "通過",
+  "city": "臺中市",
+  "district": "梧棲區"
+ },
+ {
+  "name": "奇美實業股份有限公司",
+  "address": "臺南市仁德區中正路一段398號",
+  "passDate": "20230825",
+  "expireDate": "20260824",
+  "status": "通過",
+  "city": "臺南市",
+  "district": "仁德區"
+ },
+ {
+  "name": "聯華電子股份有限公司12A-P6",
+  "address": "新竹市東區力行二路3號",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "新竹市",
+  "district": "東區"
+ },
+ {
+  "name": "群創光電股份有限公司五廠",
+  "address": "苗栗縣竹南鎮新竹科學工業園區科北街18號",
+  "passDate": "20230522",
+  "expireDate": "20260521",
+  "status": "通過",
+  "city": "苗栗縣",
+  "district": "竹南鎮"
+ },
+ {
+  "name": "聯華電子股份有限公司8D廠",
+  "address": "新竹市東區新竹科學園區力行二路3號",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "新竹市",
+  "district": "東區"
+ },
+ {
+  "name": "達方電子股份有限公司臺南廠",
+  "address": "臺南市安南區科技三路71號",
+  "passDate": "20230611",
+  "expireDate": "20260610",
+  "status": "通過",
+  "city": "臺南市",
+  "district": "安南區"
+ },
+ {
+  "name": "欣興電子股份有限公司山鶯廠(一、二廠)",
+  "address": "桃園市龜山區山鶯路177號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "龜山區"
+ },
+ {
+  "name": "欣興電子股份有限公司自強廠",
+  "address": "桃園市中壢區自強一路17號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "中壢區"
+ },
+ {
+  "name": "台灣電力股份有限公司興達發電廠",
+  "address": "高雄市永安區鹽田里興達路6號",
+  "passDate": "20230825",
+  "expireDate": "20260824",
+  "status": "通過",
+  "city": "高雄市",
+  "district": "永安區"
+ },
+ {
+  "name": "日月光半導體製造股份有限公司中壢分公司一、二廠",
+  "address": "桃園市中壢區中華路一段236號",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "中壢區"
+ },
+ {
+  "name": "華新科技股份有限公司高雄二廠",
+  "address": "高雄市前鎮區加工出口區北一路3-1號",
+  "passDate": "20230611",
+  "expireDate": "20260610",
+  "status": "通過",
+  "city": "高雄市",
+  "district": "前鎮區"
+ },
+ {
+  "name": "群創光電股份有限公司台南五廠",
+  "address": "臺南市新市區南部科學園區環東路一段2號",
+  "passDate": "20230713",
+  "expireDate": "20260712",
+  "status": "通過",
+  "city": "臺南市",
+  "district": "新市區"
+ },
+ {
+  "name": "群創光電股份有限公司八廠",
+  "address": "苗栗縣竹南鎮新竹科學園區科北街18號",
+  "passDate": "20230522",
+  "expireDate": "20260521",
+  "status": "通過",
+  "city": "苗栗縣",
+  "district": "竹南鎮"
+ },
+ {
+  "name": "統鼎聯合工程股份有限公司",
+  "address": "新北市淡水區中正東路二段27號10樓",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "新北市",
+  "district": "淡水區"
+ },
+ {
+  "name": "中鋼碳素化學股份有限公司屏南廠",
+  "address": "屏東縣枋寮鄉中正大路22號",
+  "passDate": "20230728",
+  "expireDate": "20260727",
+  "status": "通過",
+  "city": "屏東縣",
+  "district": "枋寮鄉"
+ },
+ {
+  "name": "中泰資源科技股份有限公司",
+  "address": "桃園市觀音區大同里5鄰環北路408號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "觀音區"
+ },
+ {
+  "name": "台達電子工業股份有限公司臺南一廠",
+  "address": "臺南市善化區台南科學工業園區木柵港東路17號",
+  "passDate": "20230728",
+  "expireDate": "20260727",
+  "status": "通過",
+  "city": "臺南市",
+  "district": "善化區"
+ },
+ {
+  "name": "南茂科技股份有限公司台南廠",
+  "address": "臺南市新市區南部科學工業園區台南園區南科七路5號",
+  "passDate": "20230522",
+  "expireDate": "20260521",
+  "status": "通過",
+  "city": "臺南市",
+  "district": "新市區"
+ },
+ {
+  "name": "台灣微軟股份有限公司",
+  "address": "臺北市信義區忠孝東路五段68號18樓",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "臺北市",
+  "district": "信義區"
+ },
+ {
+  "name": "欣興電子股份有限公司蘆竹二廠",
+  "address": "桃園市蘆竹區南山路二段307-3號",
+  "passDate": "20230814",
+  "expireDate": "20260813",
+  "status": "通過",
+  "city": "桃園市",
+  "district": "蘆竹區"
+ },
+ {
+  "name": "安集科技股份有限公司",
+  "address": "臺南市安南區科技五路71號",
+  "passDate": "20230713",
+  "expireDate": "20260712",
+  "status": "通過",
+  "city": "臺南市",
+  "district": "安南區"
+ },
+ {
+  "name": "建通精密工業股份有限公司",
+  "address": "高雄市路竹區環球路72號",
+  "passDate": "20230626",
+  "expireDate": "20260625",
+  "status": "通過",
+  "city": "高雄市",
+  "district": "路竹區"
+ },
+ {
+  "name": "聯華電子股份有限公司8E廠",
+  "address": "新竹市東區新竹科學園區力行二路3號",
+  "passDate": "20230504",
+  "expireDate": "20260503",
+  "status": "通過",
+  "city": "新竹市",
+  "district": "東區"
+ },
+ {
+  "name": "旭硝子顯示玻璃股份有限公司台南廠",
+  "address": "臺南市樹谷園區紫楝路11、13、15號",
+  "passDate": "20230728",
+  "expireDate": "20260727",
+  "status": "通過",
+  "city": "臺南市",
+  "district": "樹谷園區"
+ }
+]
