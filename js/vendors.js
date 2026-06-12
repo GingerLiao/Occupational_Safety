@@ -11,12 +11,17 @@ const Vendors = {
     this.renderSuggest();
     this.refreshTray();
   },
-  onLang(){ this.renderSuggest(); if(document.getElementById("view-compare").classList.contains("active")) this.renderCompare(); },
+  onLang(){
+    this.renderSuggest();
+    if(document.getElementById("view-compare").classList.contains("active")) this.renderCompare();
+    // re-render a showing result card so its labels follow the language
+    if(document.getElementById("vendorResult").children.length && document.getElementById("vendorInput").value.trim()) this.assess();
+  },
 
   renderSuggest(){
     const picks=["穩懋半導體","台達電子","欣興電子","聯華電子","群創光電","奇美實業"];
     document.getElementById("vendorSuggest").innerHTML =
-      `<span style="font-size:12px;color:var(--text-mute);align-self:center">範例：</span>`+
+      `<span style="font-size:12px;color:var(--text-mute);align-self:center">${t("vendor.example")}：</span>`+
       picks.map(p=>`<button class="chip" data-v="${p}">${p}</button>`).join("");
     document.querySelectorAll("#vendorSuggest .chip").forEach(c=>c.addEventListener("click",()=>{
       document.getElementById("vendorInput").value=c.dataset.v; this.assess();
@@ -25,14 +30,14 @@ const Vendors = {
 
   assess(){
     const q=document.getElementById("vendorInput").value.trim();
-    if(!q){ App.toast("請輸入廠商名稱","bad"); return; }
+    if(!q){ App.toast(t("vendor.empty_input"),"bad"); return; }
     const r=assessVendor(q);
     document.getElementById("vendorResult").innerHTML=this.cardHTML(r);
     const btn=document.querySelector("#vendorResult .track-btn");
     if(btn) btn.addEventListener("click",()=>this.addToCompare(r.query));
   },
 
-  ringColor(level){ return level==="low"?"#34d399":level==="mid"?"#fbbf24":"#f87171"; },
+  ringColor(level){ return level==="low"?"#16a34a":level==="mid"?"#d97706":"#dc2626"; },
   riskClass(level){ return level==="low"?"risk-low":level==="mid"?"risk-mid":"risk-high"; },
   riskLabel(level){ return level==="low"?t("vendor.score").includes("分")?"低風險":"Low":level; },
 
@@ -49,19 +54,19 @@ const Vendors = {
       <div class="vc-head">
         <div>
           <h3>${r.query}</h3>
-          ${r.passedHit?`<div class="addr">📍 ${r.passed.address}</div>`:`<div class="addr" style="color:var(--warn)">未在政府審查名單中</div>`}
+          ${r.passedHit?`<div class="addr">📍 ${r.passed.address}</div>`:`<div class="addr" style="color:var(--warn)">${t("vendor.notinlist")}</div>`}
         </div>
         <span class="risk-badge ${this.riskClass(r.levelKey)}">${r.levelKey==="low"?"🟢":r.levelKey==="mid"?"🟡":"🔴"} ${lvText}</span>
       </div>
       <div class="score-ring">
-        <div class="ring" style="background:conic-gradient(${col} ${r.score*3.6}deg, #0c1530 0deg)">
+        <div class="ring" style="background:conic-gradient(${col} ${r.score*3.6}deg, #e6ecf5 0deg)">
           <div style="position:absolute;inset:6px;background:var(--surface);border-radius:50%"></div>
           <div class="rv" style="position:relative;color:${col}">${r.score}</div>
         </div>
         <div style="flex:1">
           <div class="kv"><span class="k">${t("vendor.status")}</span><span class="v">${r.passedHit?`<span style="color:var(--good)">✅ ${t("vendor.passed")}</span>`:`<span style="color:var(--warn)">${t("vendor.notfound")}</span>`}</span></div>
-          <div class="kv"><span class="k">${t("vendor.violations")}</span><span class="v" style="color:${r.vCount?'var(--bad)':'var(--good)'}">${r.vCount} 筆</span></div>
-          ${r.passedHit?`<div class="kv"><span class="k">審查有效期</span><span class="v">${fmtDate(r.passed.passDate)} ~ ${fmtDate(r.passed.expireDate)}</span></div>`:""}
+          <div class="kv"><span class="k">${t("vendor.violations")}</span><span class="v" style="color:${r.vCount?'var(--bad)':'var(--good)'}">${r.vCount} ${t("vendor.records")}</span></div>
+          ${r.passedHit?`<div class="kv"><span class="k">${t("vendor.validperiod")}</span><span class="v">${fmtDate(r.passed.passDate)} ~ ${fmtDate(r.passed.expireDate)}</span></div>`:""}
         </div>
       </div>
       <div class="info-card" style="margin-top:4px"><b>🛡️ ${t("vendor.recommend")}：</b>${r.recommend}</div>
@@ -81,12 +86,12 @@ const Vendors = {
   addToCompare(name){
     if(!name) return;
     if(this.compareList.includes(name)){ App.toast(t("vendor.tracked"),"good"); return; }
-    if(this.compareList.length>=5){ App.toast("最多比較 5 家","bad"); return; }
+    if(this.compareList.length>=5){ App.toast(t("toast.maxcompare"),"bad"); return; }
     this.compareList.push(name);
     localStorage.setItem("js_compare",JSON.stringify(this.compareList));
     this.refreshTray();
     if(document.getElementById("view-vendors").classList.contains("active")) this.assess();
-    App.toast(`已加入比較：${name}`,"good");
+    App.toast(`${t("toast.added")}：${name}`,"good");
   },
   removeFromCompare(name){
     this.compareList=this.compareList.filter(x=>x!==name);
@@ -120,20 +125,22 @@ const Vendors = {
     rs.sort((a,b)=>b.score-a.score);
     const best=rs[0];
     const metricRow=(label,fn)=>`<tr><td class="metric">${label}</td>${rs.map(fn).join("")}</tr>`;
-    let html=`<div class="card" style="overflow-x:auto"><table class="cmp-table"><thead><tr><th>${t("compare.title")}</th>`+
-      rs.map(r=>`<th>${r.query}${r===best?' <span class="chip good btn-sm" style="padding:1px 7px">★ 最佳</span>':''}</th>`).join("")+`</tr></thead><tbody>`;
+    let html=`<div class="card" style="overflow-x:auto"><table class="cmp-table"><thead><tr><th>${t("compare.title_short")}</th>`+
+      rs.map(r=>`<th>${r.query}${r===best?` <span class="chip good btn-sm" style="padding:1px 7px">★ ${t("compare.best")}</span>`:''}</th>`).join("")+`</tr></thead><tbody>`;
     html+=metricRow(t("vendor.score"), r=>{
       const col=this.ringColor(r.levelKey);
       return `<td><div style="font-size:22px;font-weight:800;color:${col}">${r.score}</div><div class="bar-mini"><i style="width:${r.score}%;background:${col}"></i></div></td>`;
     });
-    const gradeLabel = window.currentLang==="zh"?"風險評級":window.currentLang==="en"?"Risk grade":t("vendor.score");
-    html+=metricRow(gradeLabel, r=>`<td><span class="risk-badge ${this.riskClass(r.levelKey)}">${r.level}</span></td>`);
+    html+=metricRow(t("vendor.grade"), r=>`<td><span class="risk-badge ${this.riskClass(r.levelKey)}">${r.level}</span></td>`);
     html+=metricRow(t("vendor.status"), r=>`<td>${r.passedHit?`<span style="color:var(--good)">✅ ${t("vendor.passed")}</span>`:`<span style="color:var(--warn)">${t("vendor.notfound")}</span>`}</td>`);
-    html+=metricRow(t("vendor.violations"), r=>`<td><b style="color:${r.vCount?'var(--bad)':'var(--good)'}">${r.vCount}</b> 筆${r.severe?`<br><small style="color:var(--bad)">含 ${r.severe} 重大</small>`:""}</td>`);
-    html+=metricRow("審查有效期", r=>`<td style="font-size:12px">${r.passedHit?`${fmtDate(r.passed.passDate)}<br>~ ${fmtDate(r.passed.expireDate)}`:"—"}</td>`);
+    html+=metricRow(t("vendor.violations"), r=>`<td><b style="color:${r.vCount?'var(--bad)':'var(--good)'}">${r.vCount}</b> ${t("vendor.records")}${r.severe?`<br><small style="color:var(--bad)">${t("vendor.severe",{n:r.severe})}</small>`:""}</td>`);
+    html+=metricRow(t("vendor.validperiod"), r=>`<td style="font-size:12px">${r.passedHit?`${fmtDate(r.passed.passDate)}<br>~ ${fmtDate(r.passed.expireDate)}`:"—"}</td>`);
     html+=metricRow(t("vendor.recommend"), r=>`<td style="font-size:12px;color:var(--text-dim);min-width:200px">${r.recommend}</td>`);
     html+=`</tbody></table></div>`;
-    html+=`<div class="info-card" style="margin-top:16px"><b>📊 比較結論：</b>在 ${rs.length} 家候選廠商中，<b style="color:var(--good)">${best.query}</b> 職安評分最高（${best.score} 分，${best.level}），建議優先發包。</div>`;
+    const conclusion = window.currentLang==="en"
+      ? `<b>📊 Conclusion: </b>Among ${rs.length} candidate suppliers, <b style="color:var(--good)">${best.query}</b> has the highest safety score (${best.score}, ${best.level}) and is recommended.`
+      : `<b>📊 比較結論：</b>在 ${rs.length} 家候選供應商中，<b style="color:var(--good)">${best.query}</b> 職安評分最高（${best.score} 分，${best.level}），建議優先發包。`;
+    html+=`<div class="info-card" style="margin-top:16px">${conclusion}</div>`;
     html+=`<div style="margin-top:14px"><button class="btn btn-sm" id="cmpClearBtn">${t("compare.clear")}</button></div>`;
     area.innerHTML=html;
     document.getElementById("cmpClearBtn").addEventListener("click",()=>this.clearCompare());

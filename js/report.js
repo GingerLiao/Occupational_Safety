@@ -23,8 +23,8 @@ const Report = {
   init(){
     document.getElementById("downloadPdf").addEventListener("click",()=>this.downloadPDF());
     document.getElementById("reportFromChat").addEventListener("click",()=>{
-      if(window.Chat && Chat.lastContext.question){ this.importFromChat(Chat.lastContext); App.toast("已從對話帶入","good"); }
-      else App.toast("尚無 AI 諮詢紀錄","bad");
+      if(window.Chat && Chat.lastContext.question){ this.importFromChat(Chat.lastContext); App.toast(t("report.imported"),"good"); }
+      else App.toast(t("report.nochat"),"bad");
     });
   },
   onLang(){ /* 表單為中文官方格式，維持中文 */ },
@@ -122,9 +122,9 @@ const Report = {
   },
 
   async downloadPDF(){
-    if(!this.data.unit){ App.toast("請至少填寫事業單位名稱","bad"); return; }
+    if(!this.data.unit){ App.toast(t("report.need_unit"),"bad"); return; }
     const node=document.getElementById("docPreview");
-    App.toast("正在生成 PDF…");
+    App.toast(t("report.generating"));
     try{
       const canvas=await html2canvas(node,{scale:2, backgroundColor:"#ffffff", useCORS:true});
       const img=canvas.toDataURL("image/png");
@@ -149,7 +149,7 @@ const Report = {
       }
       const fn=`職災事故通報表_${this.data.unit}_${new Date().toISOString().slice(0,10)}.pdf`;
       pdf.save(fn);
-      App.toast("PDF 已下載","good");
+      App.toast(t("report.done"),"good");
     }catch(e){
       console.error(e);
       // 退回：開新視窗列印

@@ -4,22 +4,14 @@
    一鍵追問、案件進度、語音輸入、文件生成。
    ============================================================ */
 const Chat = {
-  mode:"worker", busy:false, mermaidSeq:0,
+  busy:false, mermaidSeq:0,
   lastContext:{ question:"", answer:"" },
-  prompts:{
-    worker:[
-      "我每天搬重物腰受傷，公司說是我姿勢不良，不算職業病，我該怎麼辦？",
-      "幫我找桃園市的專責醫院做職業病鑑定",
-      "家人在工地墜樓身亡，老闆沒保勞保叫我私下和解，過去判賠大概多少？",
-      "工地受傷後，雇主要在幾小時內通報？流程是什麼？",
-    ],
-    enterprise:[
-      "我們準備把明年的包裝業務發包給穩懋半導體，請幫我評估風險",
-      "桃園龜山工廠員工上班墜樓，我沒幫他保勞保，法律風險與賠償？",
-      "幫我查詢台達電子的職安審查與違規紀錄",
-      "評估一家不在政府資料庫裡的廠商，系統會怎麼回覆？",
-    ],
-  },
+  prompts:[
+    "我們準備把明年的包裝業務發包給穩懋半導體，請幫我評估風險",
+    "幫我查詢台達電子的職安審查與違規紀錄",
+    "桃園龜山工廠員工上班墜樓，我沒幫他保勞保，法律風險與賠償？",
+    "評估一家不在政府資料庫裡的供應商，系統會怎麼回覆？",
+  ],
   steps:["收到諮詢","檢索法規與資料","產生分析建議","提供後續流程"],
 
   init(){
@@ -31,12 +23,6 @@ const Chat = {
     });
     this.input.addEventListener("input", ()=>{ this.input.style.height="auto"; this.input.style.height=Math.min(this.input.scrollHeight,140)+"px"; });
     document.getElementById("voiceBtn").addEventListener("click", e=>Voice.toggle(this.input, e.currentTarget));
-    document.getElementById("modeToggle").addEventListener("click", e=>{
-      const b=e.target.closest("button"); if(!b) return;
-      this.mode=b.dataset.mode;
-      document.querySelectorAll("#modeToggle button").forEach(x=>x.classList.toggle("active",x===b));
-      this.renderPrompts();
-    });
     document.getElementById("chatGenDoc").addEventListener("click", ()=>{
       Report.importFromChat(this.lastContext); App.go("report"); App.toast("已帶入最近一次諮詢內容","good");
     });
@@ -49,15 +35,15 @@ const Chat = {
 
   greet(){
     const md = window.currentLang==="zh"
-      ? `### 您好，我是職盾 AI 顧問 🛡️\n\n我能即時檢索**政府公開資料、全國法規、司法院判決與職災專責醫院名單**，為您提供可溯源的建議。每則回覆都會附上**引用法條 / 判決字號 / 資料更新日**與**信心分數**。\n\n請在下方描述您的狀況，或點選快速提問。`
-      : `### Hi, I'm the JobShield AI Advisor 🛡️\n\nI retrieve **government open data, regulations, court judgments and the designated-hospital list** to give you traceable advice. Every reply includes **cited articles, case numbers, data dates** and a **confidence score**.\n\nDescribe your situation below, or tap a quick question.`;
+      ? `### 您好，我是職盾 AI 顧問 🛡️\n\n我為**企業**即時檢索**政府審查名單、違規處分、全國法規與司法院判決**，協助您於發包前評估供應商風險、職災後掌握法律責任與應變流程。每則回覆都附上**引用法條 / 判決字號 / 資料更新日**與**信心分數**。\n\n請在下方描述您的需求，或點選快速提問。`
+      : `### Hi, I'm the JobShield AI Advisor 🛡️\n\nFor enterprises, I retrieve **government audit lists, violation records, national regulations and court judgments** to help you assess supplier risk before outsourcing and grasp legal liability after an incident. Every reply includes **cited articles, case numbers, data dates** and a **confidence score**.\n\nDescribe your need below, or tap a quick question.`;
     this.addMessage("ai", md, {greet:true});
   },
 
   renderPrompts(){
     const wrap=document.getElementById("quickPrompts");
-    wrap.innerHTML = this.prompts[this.mode].map(p=>`<button class="qp">${p}</button>`).join("");
-    wrap.querySelectorAll(".qp").forEach((b,i)=> b.addEventListener("click",()=>{ this.input.value=this.prompts[this.mode][i]; this.submit(); }));
+    wrap.innerHTML = this.prompts.map(p=>`<button class="qp">${p}</button>`).join("");
+    wrap.querySelectorAll(".qp").forEach((b,i)=> b.addEventListener("click",()=>{ this.input.value=this.prompts[i]; this.submit(); }));
   },
 
   renderProgress(active){

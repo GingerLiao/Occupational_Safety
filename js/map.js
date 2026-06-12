@@ -14,7 +14,7 @@ const MapView = {
   ensure(){
     if(this.ready){ setTimeout(()=>this.map.invalidateSize(),100); return; }
     this.map = L.map("map",{zoomControl:true}).setView([23.7,120.9],7);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",{
       attribution:'© OpenStreetMap © CARTO', maxZoom:19,
     }).addTo(this.map);
     this.buildCitySelect();
@@ -28,7 +28,7 @@ const MapView = {
   buildCitySelect(){
     const cities=[...new Set(DB.hospitals.map(h=>h.city))];
     const sel=document.getElementById("citySelect");
-    sel.innerHTML=`<option value="">全部縣市 (${DB.hospitals.length})</option>`+cities.map(c=>`<option value="${c}">${c}</option>`).join("");
+    sel.innerHTML=`<option value="">${t("map.allcity")} (${DB.hospitals.length})</option>`+cities.map(c=>`<option value="${c}">${c}</option>`).join("");
   },
 
   hIcon(active){
@@ -98,13 +98,13 @@ const MapView = {
   },
 
   locate(){
-    if(!navigator.geolocation){ App.toast("瀏覽器不支援定位","bad"); return; }
-    App.toast("定位中…");
+    if(!navigator.geolocation){ App.toast("瀏覽器不支援定位 / Geolocation not supported","bad"); return; }
+    App.toast(t("toast.locating"));
     navigator.geolocation.getCurrentPosition(pos=>{
       const {latitude:lat, longitude:lng}=pos.coords;
       this.userPos=[lat,lng];
       if(this.userMarker) this.map.removeLayer(this.userMarker);
-      this.userMarker=L.circleMarker([lat,lng],{radius:9,color:"#22d3ee",fillColor:"#22d3ee",fillOpacity:.9,weight:3}).addTo(this.map).bindPopup("📍 您的位置");
+      this.userMarker=L.circleMarker([lat,lng],{radius:9,color:"#2563eb",fillColor:"#2563eb",fillOpacity:.9,weight:3}).addTo(this.map).bindPopup("📍 "+t("map.your_loc"));
       const sorted=nearestHospitals(lat,lng);
       this.sorted=sorted;
       document.getElementById("citySelect").value="";
@@ -112,10 +112,10 @@ const MapView = {
       this.renderList(sorted);
       this.map.flyTo([lat,lng],10,{duration:.8});
       const nearest=sorted[0];
-      App.toast(`最近：${nearest.name}（${nearest.dist.toFixed(1)} km）`,"good");
+      App.toast(`${t("map.nearest")}：${nearest.name}（${nearest.dist.toFixed(1)} km）`,"good");
       setTimeout(()=>{ const m=this.markers.find(mk=>mk._hosp===nearest); m && m.openPopup(); },1000);
     }, err=>{
-      App.toast("無法取得定位，預設顯示全台","bad");
+      App.toast("無法取得定位，預設顯示全台 / Location unavailable","bad");
       // fallback: 台北車站
       const lat=25.0478,lng=121.5170; this.userPos=[lat,lng];
       const sorted=nearestHospitals(lat,lng); this.sorted=sorted; this.renderList(sorted);

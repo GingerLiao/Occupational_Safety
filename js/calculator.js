@@ -30,9 +30,9 @@ const Calc = {
   run(){
     const salary=parseFloat(document.getElementById("calcSalary").value);
     const days=parseInt(document.getElementById("calcDays").value);
-    if(!salary || salary<=0 || !days || days<=0){ App.toast("請輸入有效的投保薪資與天數","bad"); return; }
+    if(!salary || salary<=0 || !days || days<=0){ App.toast(t("calc.invalid"),"bad"); return; }
     const c=this.compute(salary,days);
-    const cappedNote = days>730? `<div style="font-size:12px;color:var(--warn);margin-top:6px">※ 輸入 ${days} 日已超過上限，依法以 730 日計算。</div>`:"";
+    const cappedNote = days>730? `<div style="font-size:12px;color:var(--warn);margin-top:6px">${t("calc.capnote",{d:days})}</div>`:"";
     const el=document.getElementById("calcResult");
     el.dataset.has="1";
     el.innerHTML=`<div class="card card-pad calc-result">
