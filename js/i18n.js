@@ -27,6 +27,9 @@ const I18N = {
     "stat.loss":"113 年職災直接經濟損失",
     "stat.premium":"職災後次年保費最高加徵",
     "stat.coverage":"資料庫涵蓋（合規 / 違規）",
+    "stat.death.v":"50 人",
+    "stat.loss.v":"84.1 億",
+    "stat.premium.v":"50 %",
     "home.features":"核心功能",
 
     "feat.chat.t":"雙向智能代理",
@@ -57,6 +60,10 @@ const I18N = {
     "chat.confidence":"信心分數",
     "chat.followup":"建議追問",
     "chat.updated":"資料更新日",
+    "chat.step1":"收到諮詢",
+    "chat.step2":"檢索法規與資料",
+    "chat.step3":"產生分析建議",
+    "chat.step4":"提供後續流程",
 
     "vendor.title":"供應商職安風險評估",
     "vendor.desc":"輸入供應商名稱，系統自動比對「通過審查名單」與「違規處分紀錄」，輸出風險評級與發包建議。",
@@ -116,8 +123,8 @@ const I18N = {
     "calc.capnote":"※ 輸入 {d} 日已超過上限，依法以 730 日計算。",
     "calc.invalid":"請輸入有效的投保薪資與天數",
 
-    "report.title":"職業災害事故通報表生成",
-    "report.desc":"填寫事故資訊或由 AI 對話自動帶入，一鍵生成符合勞動部格式的通報表 PDF。",
+    "report.title":"公司事故傷害報告單生成",
+    "report.desc":"依勞動部職業安全衛生署參考格式；填寫事故資訊或由 AI 對話自動帶入，一鍵生成報告單 PDF。",
     "report.download":"下載 PDF 通報表",
     "report.fill":"從最近一次 AI 諮詢帶入",
     "report.nochat":"尚無 AI 諮詢紀錄",
@@ -158,6 +165,9 @@ const I18N = {
     "stat.loss":"Direct economic loss, 2024",
     "stat.premium":"Max next-year premium surcharge",
     "stat.coverage":"Database coverage (compliant / violations)",
+    "stat.death.v":"50",
+    "stat.loss.v":"NT$8.41B",
+    "stat.premium.v":"+50%",
     "home.features":"Core Features",
 
     "feat.chat.t":"Bidirectional AI Agent",
@@ -188,6 +198,10 @@ const I18N = {
     "chat.confidence":"Confidence",
     "chat.followup":"Suggested follow-ups",
     "chat.updated":"Data updated",
+    "chat.step1":"Received",
+    "chat.step2":"Retrieving data",
+    "chat.step3":"Generating advice",
+    "chat.step4":"Next steps",
 
     "vendor.title":"Supplier Occupational-Safety Risk",
     "vendor.desc":"Enter a supplier name; the system cross-checks the audit list and violation records to output a risk grade and advice.",
@@ -247,8 +261,8 @@ const I18N = {
     "calc.capnote":"※ {d} days exceeds the cap; calculated as 730 days by law.",
     "calc.invalid":"Please enter a valid insured salary and number of days",
 
-    "report.title":"Occupational Incident Report Generator",
-    "report.desc":"Fill in the details or auto-import from AI chat, then generate an official PDF in one click.",
+    "report.title":"Company Incident Report Generator",
+    "report.desc":"Based on the MOL OSHA reference format; fill in details or auto-import from AI chat, then generate the report PDF in one click.",
     "report.download":"Download PDF",
     "report.fill":"Import from last AI consultation",
     "report.nochat":"No AI consultation yet",

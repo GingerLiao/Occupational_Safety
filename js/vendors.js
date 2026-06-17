@@ -103,7 +103,11 @@ const Vendors = {
   refreshTray(){
     const tray=document.getElementById("compareTray");
     const cnt=document.getElementById("cmpCount");
-    tray.classList.toggle("show", this.compareList.length>0);
+    // 比較列僅在「供應商風險評估 / 多供應商比較」頁顯示，避免擋住其他頁內容
+    const onTrayView = (window.App && (App.view==="vendors"||App.view==="compare"));
+    const show = this.compareList.length>0 && onTrayView;
+    tray.classList.toggle("show", show);
+    document.body.classList.toggle("has-tray", show);
     if(this.compareList.length){ cnt.style.display="inline-flex"; cnt.textContent=this.compareList.length; }
     else cnt.style.display="none";
     document.getElementById("ctItems").innerHTML=this.compareList.map(n=>

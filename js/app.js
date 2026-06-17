@@ -20,6 +20,7 @@ const App = {
     if(view==="chat" && window.Chat) Chat.focusInput();
     if(view==="compare" && window.Vendors) Vendors.renderCompare();
     if(view==="report" && window.Report) Report.ensure();
+    if(window.Vendors) Vendors.refreshTray();   // 比較列僅在供應商相關頁顯示
   },
   toast(msg,type="brand"){
     const el = document.createElement("div");

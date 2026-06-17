@@ -12,7 +12,8 @@ const Chat = {
     "桃園龜山工廠員工上班墜樓，我沒幫他保勞保，法律風險與賠償？",
     "評估一家不在政府資料庫裡的供應商，系統會怎麼回覆？",
   ],
-  steps:["收到諮詢","檢索法規與資料","產生分析建議","提供後續流程"],
+  stepKeys:["chat.step1","chat.step2","chat.step3","chat.step4"],
+  lastProgress:-1,
 
   init(){
     this.body = document.getElementById("chatBody");
@@ -30,7 +31,7 @@ const Chat = {
     this.greet();
     this.renderPrompts();
   },
-  onLang(){ this.renderPrompts(); if(!this.hasUserMsg){ this.body.innerHTML=""; this.greet(); } },
+  onLang(){ this.renderPrompts(); this.renderProgress(this.lastProgress); if(!this.hasUserMsg){ this.body.innerHTML=""; this.greet(); } },
   focusInput(){ setTimeout(()=>this.input.focus(),100); },
 
   greet(){
@@ -47,10 +48,10 @@ const Chat = {
   },
 
   renderProgress(active){
-    const labels = window.currentLang==="zh"? this.steps : ["Received","Retrieving data","Generating advice","Next steps"];
-    document.getElementById("progressTrack").innerHTML = labels.map((s,i)=>{
+    this.lastProgress = active;
+    document.getElementById("progressTrack").innerHTML = this.stepKeys.map((k,i)=>{
       const cls = i<active?"done":i===active?"active":"";
-      return `<div class="pstep ${cls}">${s}</div>`;
+      return `<div class="pstep ${cls}">${t(k)}</div>`;
     }).join("");
   },
 
@@ -58,7 +59,8 @@ const Chat = {
     if(role==="user") this.hasUserMsg=true;
     const el=document.createElement("div");
     el.className="msg "+role;
-    el.innerHTML = `<div class="ava">${role==="ai"?"盾":"我"}</div><div style="flex:1;min-width:0"><div class="bubble"></div></div>`;
+    const aiIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round" width="17" height="17"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>`;
+    el.innerHTML = `<div class="ava">${role==="ai"?aiIcon:"我"}</div><div style="flex:1;min-width:0"><div class="bubble"></div></div>`;
     this.body.appendChild(el);
     const bubble=el.querySelector(".bubble");
     if(role==="user"){ bubble.textContent=md; }
@@ -151,7 +153,7 @@ const Chat = {
 
     // typing indicator
     const aiEl=document.createElement("div"); aiEl.className="msg ai";
-    aiEl.innerHTML=`<div class="ava">盾</div><div style="flex:1"><div class="bubble"><div class="typing"><span></span><span></span><span></span></div></div></div>`;
+    aiEl.innerHTML=`<div class="ava"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round" width="17" height="17"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div><div style="flex:1"><div class="bubble"><div class="typing"><span></span><span></span><span></span></div></div></div>`;
     this.body.appendChild(aiEl); this.scroll();
     const bubble=aiEl.querySelector(".bubble");
 

@@ -266,6 +266,7 @@ label.field{display:block;font-size:13px;color:var(--text-dim);font-weight:600;m
 
 .compare-tray{position:fixed;bottom:0;left:248px;right:0;background:rgba(255,255,255,.96);border-top:1px solid var(--line);backdrop-filter:blur(12px);padding:14px 28px;z-index:40;transform:translateY(120%);transition:.3s;box-shadow:0 -10px 30px -12px rgba(20,40,80,.18)}
 .compare-tray.show{transform:none}
+body.has-tray .content{padding-bottom:96px}
 .compare-tray .ct-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .compare-tray .ct-items{display:flex;gap:10px;flex:1;flex-wrap:wrap}
 .ct-pill{display:flex;align-items:center;gap:8px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:6px 8px 6px 13px;font-size:13px;font-weight:600}
