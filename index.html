@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="css/styles.css?v=4">
+<link rel="stylesheet" href="css/styles.css?v=10">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
 </head>
 <body>
@@ -96,15 +96,13 @@
           </div>
         </div>
 
-
-
         <div class="section-title" style="margin:8px 0 14px;font-size:17px" data-i18n="home.features">核心功能</div>
         <div class="feature-grid" id="featureGrid"></div>
       </section>
 
       <!-- ============ CHAT ============ -->
       <section class="view" id="view-chat">
-        <div class="chat-wrap">
+        <div class="chat-wrap collapsed" id="chatWrap">
           <div class="chat-panel">
             <div class="chat-head">
               <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round" width="20" height="20"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
@@ -112,6 +110,9 @@
                 <b data-i18n="chat.title">職盾 AI 顧問</b>
                 <small><span class="dot" style="display:inline-block;vertical-align:middle"></span> <span data-i18n="chat.status">線上 · Hybrid RAG 已連線</span></small>
               </div>
+              <button class="chat-canvas-toggle" id="canvasReopen" title="開啟視覺化看板">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 4-6"/></svg>
+              </button>
             </div>
             <div class="chat-body" id="chatBody"></div>
             <div class="chat-input">
@@ -128,21 +129,16 @@
             </div>
           </div>
 
-          <div class="chat-side">
-            <div class="side-card">
-              <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-i18n="chat.progress">案件處理進度</span></h4>
-              <div class="progress-track" id="progressTrack"></div>
+          <!-- 視覺化看板 (artifact canvas)：有圖表/表格才出現 -->
+          <div class="canvas" id="canvas">
+            <div class="canvas-head">
+              <div class="canvas-tabs" id="canvasTabs"></div>
+              <div class="canvas-acts">
+                <button class="cv-btn" id="canvasCollapse" title="收合看板"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+              </div>
             </div>
-            <div class="side-card">
-              <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><span data-i18n="chat.tools">快捷工具</span></h4>
-              <button class="btn btn-primary btn-block btn-sm" id="chatGenDoc" style="margin-bottom:8px">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                <span data-i18n="chat.gendoc">一鍵生成通報表</span>
-              </button>
-              <button class="btn btn-block btn-sm" data-goto="vendors">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg>
-                <span data-i18n="nav.vendors">供應商風險評估</span>
-              </button>
+            <div class="canvas-body">
+              <div class="cv-pane" id="cvArtifact"></div>
             </div>
           </div>
         </div>
@@ -203,23 +199,14 @@
 
       <!-- ============ REPORT ============ -->
       <section class="view" id="view-report">
-        <div class="section-title" data-i18n="report.title">職業災害事故通報表生成</div>
-        <div class="section-desc" data-i18n="report.desc"></div>
-        <div style="margin-bottom:16px">
-          <button class="btn btn-sm" id="reportFromChat">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg>
-            <span data-i18n="report.fill">從最近一次 AI 諮詢帶入</span>
+        <div class="section-title" data-i18n="report.title">公司事故傷害報告單生成</div>
+        <div class="section-desc" data-i18n="report.editHint">可直接點擊表格中的欄位編輯內容、點選 ☐ 勾選項目，完成後下載 PDF。</div>
+        <div class="doc-wrap">
+          <div class="doc-preview" id="docPreview"></div>
+          <button class="btn btn-primary btn-block" id="downloadPdf" style="margin-top:16px;max-width:420px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span data-i18n="report.download">下載 PDF 報告單</span>
           </button>
-        </div>
-        <div class="doc-layout">
-          <div class="card card-pad" id="reportForm"></div>
-          <div>
-            <div class="doc-preview" id="docPreview"></div>
-            <button class="btn btn-primary btn-block" id="downloadPdf" style="margin-top:16px">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-              <span data-i18n="report.download">下載 PDF 通報表</span>
-            </button>
-          </div>
         </div>
       </section>
 
@@ -240,6 +227,14 @@
 <!-- mobile nav -->
 <nav class="mobile-nav" id="mobileNav"></nav>
 
+<!-- lightbox：圖表放大 -->
+<div class="lightbox" id="lightbox">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose" title="關閉 / Close">×</button>
+    <div class="lb-body" id="lbBody"></div>
+  </div>
+</div>
+
 <div class="toast-wrap" id="toastWrap"></div>
 
 <!-- Libraries -->
@@ -250,16 +245,16 @@
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
 
 <!-- App -->
-<script src="js/i18n.js?v=4"></script>
-<script src="js/data.js?v=4"></script>
-<script src="js/knowledge.js?v=4"></script>
-<script src="js/rag-api.js?v=4"></script>
-<script src="js/voice.js?v=4"></script>
-<script src="js/chat.js?v=4"></script>
-<script src="js/vendors.js?v=4"></script>
-<script src="js/map.js?v=4"></script>
-<script src="js/calculator.js?v=4"></script>
-<script src="js/report.js?v=4"></script>
-<script src="js/app.js?v=4"></script>
+<script src="js/i18n.js?v=10"></script>
+<script src="js/data.js?v=10"></script>
+<script src="js/knowledge.js?v=10"></script>
+<script src="js/rag-api.js?v=10"></script>
+<script src="js/voice.js?v=10"></script>
+<script src="js/chat.js?v=10"></script>
+<script src="js/vendors.js?v=10"></script>
+<script src="js/map.js?v=10"></script>
+<script src="js/calculator.js?v=10"></script>
+<script src="js/report.js?v=10"></script>
+<script src="js/app.js?v=10"></script>
 </body>
 </html>

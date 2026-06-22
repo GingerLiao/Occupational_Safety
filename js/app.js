@@ -73,7 +73,6 @@ window.addEventListener("DOMContentLoaded", async ()=>{
 
   await loadDB();
   document.getElementById("dataDate").textContent = fmtDate(DB.updated.replace(/-/g,""));
-  //document.getElementById("covCount").textContent = `${DB.companies.length} / ${DB.violations.length}`;
 
   renderFeatures(); renderMobileNav();
 
